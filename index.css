@@ -16,10 +16,12 @@ h1 {
 i {
   font-size: 15px;
   cursor: pointer;
+  color: #999;
 }
 
-.fa-solid {
-  color: #999;
+i:hover,
+i:focus {
+  opacity: 70%;
 }
 
 .liked {
@@ -54,7 +56,7 @@ textarea {
   border: none;
   resize: none;
   padding: 10px;
-  margin: 0 0 20px 0;
+  margin: 0 0 15px 0;
   height: 60px;
   width: 100%;
   font-size: 20px;
@@ -71,6 +73,10 @@ button {
   cursor: pointer;
   font-size: 20px;
   font-weight: 600;
+}
+
+button:hover {
+  box-shadow: 0px 0px 2px #1da1f2;
 }
 
 /* tweet */
@@ -92,7 +98,11 @@ button {
   display: flex;
   font-size: 13px;
   justify-content: space-between;
-  width: 160px;
+  width: 75%;
+}
+
+.tweet-self {
+  width: calc(100% - 12px);
 }
 
 .tweet-detail {
@@ -105,6 +115,21 @@ button {
   padding: 20px 0 0 0px;
   margin: 10px 0 10px 40px;
   width: 80%;
+}
+
+.tweet-reply button {
+  font-size: 16px;
+  width: 40%;
+  margin-left: 28%;
+  background-color: white;
+  border: 2px solid #1da1f2;
+  color: #1da1f2;
+}
+
+.tweet-reply textarea {
+  font-size: 14px;
+  margin-bottom: 4px;
+  padding: 5px;
 }
 
 .handle {
