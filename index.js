@@ -1,7 +1,7 @@
 import { tweetsData as importedTweetsData } from "./data.js";
 import { v4 as uuidv4 } from "https://jspm.dev/uuid";
 
-let tweetsData = importedTweetsData;
+let tweetsData = getTweetsData();
 
 document.addEventListener("click", function (e) {
   if (e.target.dataset.like) {
@@ -187,7 +187,24 @@ function getFeedHtml() {
 }
 
 function render() {
+  saveTweetsToLocalStorage();
   document.getElementById("feed").innerHTML = getFeedHtml();
+}
+
+function saveTweetsToLocalStorage() {
+  localStorage.setItem("tweetsData", JSON.stringify(tweetsData));
+}
+
+function getTweetsFromLocalStorage() {
+  return localStorage.getItem("tweetsData")
+    ? JSON.parse(localStorage.getItem("tweetsData"))
+    : [];
+}
+
+function getTweetsData() {
+  return getTweetsFromLocalStorage().length
+    ? getTweetsFromLocalStorage()
+    : importedTweetsData;
 }
 
 render();
